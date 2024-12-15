@@ -1,0 +1,32 @@
+/* General Styles */
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Footer Section */
+        .footer_area {
+            background-color: #2ec4fa;
+            color: #13125b; 
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer_area h3 {
+            font-size: 36px;
+            margin: 0 0 20px;
+        }
+
+        .footer_area .Content label {
+            display: block;
+            font-size: 18px;
+            margin: 10px 0;
+            transition: transform 0.3s ease; /* Hiệu ứng phóng to văn bản */
+        }
+
+        .footer_area .Content label:hover {
+            transform: scale(1.1); /* Phóng to văn bản khi đưa chuột vào */
+        }

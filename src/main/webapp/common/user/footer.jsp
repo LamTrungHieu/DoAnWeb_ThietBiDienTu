@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Footer</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/admin/css/styles-footer.css">
-    <script src="${pageContext.request.contextPath}/templates/admin/js/scripts-footer.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/templates/user/css/styles-footer.css">
+    <script src="${pageContext.request.contextPath}/templates/user/js/scripts-footer.js" defer></script>
 </head>
 <body>
     <!-- footer section start -->

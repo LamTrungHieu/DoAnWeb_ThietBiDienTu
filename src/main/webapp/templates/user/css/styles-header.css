@@ -1,0 +1,278 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Section */
+.header_section {
+    background: linear-gradient(90deg, #fafeff, #2ec4fa);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Căn giữa logo và menu */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.logo_and_name {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Đảm bảo logo và tên không bị dãn quá xa */
+    position: absolute;
+    left: 20px;
+}
+
+.header_section img {
+    display: block;
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 10px;
+}
+
+#name {
+    font-size: 36px;
+    font-weight: bold;
+    animation: slideIn 1s forwards;
+    display: flex;
+    align-items: center;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Container Fluid */
+.header-container-fluid {
+    display: flex;
+    justify-content: center; /* Căn giữa menu theo chiều ngang */
+    align-items: center; /* Căn giữa menu theo chiều dọc */
+    width: 100%;
+}
+
+/* Navbar */
+.header-navbar {
+    display: flex;
+    flex-direction: row; /* Chỉnh menu thành hàng ngang */
+    justify-content: center; /* Căn giữa các liên kết */
+    align-items: center;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các liên kết */
+    margin: 0;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #007bff; /* Đổi màu khi hover */
+    transform: translateY(-3px); /* Tạo hiệu ứng dịch chuyển nhỏ */
+}
+
+.navbar-links a:active {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+/* Login Icon */
+.login_text {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 20px;
+}
+
+.login_text ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.login_text li {
+    margin: 0 7px;
+}
+
+.login_text a img {
+    display: block;
+    max-width: 24px;
+    max-height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.login_text a img:hover {
+    transform: scale(1.2); /* Phóng to icon khi đưa chuột vào */
+}
+
+#name {
+    font-size: 24px;
+    font-weight: bold;
+}
+/* Căn chỉnh giỏ hàng */
+#shoppingNavbar {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+/* Giỏ hàng */
+#shoppingNavbar {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Bảng sản phẩm */
+#cart-items-table {
+    width: 100%;
+    border-collapse: collapse; /* Đảm bảo các đường viền không chồng lên nhau */
+    margin: 0 15px;
+}
+
+/* Style cho tiêu đề bảng */
+#cart-items-table th {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 10px;
+    font-size: 16px;
+    text-align: left;
+    border-bottom: 2px solid #ddd; /* Đường viền dưới tiêu đề */
+    border-right: 1px solid #ddd; /* Đường viền phải của tiêu đề */
+}
+
+/* Style cho các ô trong bảng */
+#cart-items-table td {
+    padding: 10px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd; /* Đường viền dưới của mỗi ô */
+    border-right: 1px solid #ddd; /* Đường viền phải của mỗi ô */
+}
+
+/* Cột hình ảnh */
+.product-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Cột chi tiết sản phẩm */
+.product-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dòng tổng tiền */
+.product-total-price {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-price-quantity {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666;
+}
+
+.product-quantity,
+.product-price {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Cải tiến hiệu ứng hover khi rê chuột lên các hàng */
+#cart-items-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Style cho thông báo giỏ hàng trống */
+#cart-items-body td {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+    padding: 20px 0;
+}
+
+/* Nút đóng sidebar */
+.closebtn {
+    font-size: 36px;
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+}
+
+/* Header của giỏ hàng */
+h2 {
+    margin-top: 0;
+    padding: 10px 0;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+.view-cart-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.view-cart-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-cart-button:hover {
+    background-color: #0056b3;
+}

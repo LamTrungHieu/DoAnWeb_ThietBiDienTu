@@ -16,7 +16,7 @@
         <nav class="navbar navbar-light bg-light justify-content-between">
             <div id="mySidenav" class="sidenav">
                 <div class="logo">
-                    <img src="${pageContext.request.contextPath}/templates/images/logo1.jpg" alt="Logo"/>
+                    <img src="${pageContext.request.contextPath}/templates/images/logoghexatech.jpg" alt="Logo"/>
                 </div>
                 <div class="select-item">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>

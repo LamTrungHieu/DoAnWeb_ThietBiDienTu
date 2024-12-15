@@ -1,6 +1,8 @@
 package vn.cuahangdientu.repository;
 
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -40,4 +42,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 			@Param("address") String address,
 			@Param("status") int status
 	);
+	// Tìm kiếm user theo tên hoặc email, phân trang
+    Page<User> findByFullNameContainingOrEmailContaining(String fullName, String email, Pageable pageable);
+    Optional<User> findById(Integer id);
 }

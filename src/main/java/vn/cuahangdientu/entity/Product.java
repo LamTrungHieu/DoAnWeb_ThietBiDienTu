@@ -29,9 +29,6 @@ public class Product {
 	@Column(name = "name_product", length = 100, nullable = false)
 	private String name;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_shop", nullable = false)
-	private Shop shop;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_category", nullable = false)
@@ -45,7 +42,5 @@ public class Product {
 	
 	@Column(name = "status_product", nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
 	private boolean status_product;
-	
-	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<ProductColor> productColors;
+
 }

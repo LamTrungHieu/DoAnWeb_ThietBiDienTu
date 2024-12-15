@@ -10,4 +10,5 @@ public  interface IUserService {
 	User findUserById(Long id);
 	Page<User> getUsers(Pageable pageable);
 	User findById(Integer id);
+	
 }

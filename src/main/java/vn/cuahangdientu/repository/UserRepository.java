@@ -45,4 +45,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	// Tìm kiếm user theo tên hoặc email, phân trang
     Page<User> findByFullNameContainingOrEmailContaining(String fullName, String email, Pageable pageable);
     Optional<User> findById(Integer id);
+    
 }

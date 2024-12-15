@@ -6,6 +6,8 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -37,14 +39,6 @@ public class Order {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_product", nullable = false)
 	private Product product;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_product_color", nullable = false)
-	private ProductColor productColor;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_shop", nullable = false) // Thêm liên kết đến Shop
-	private Shop shop;
 
 	@Column(name = "quantity", nullable = false)
 	private Integer quantity;
@@ -53,8 +47,9 @@ public class Order {
 	@Temporal(TemporalType.TIMESTAMP) 
 	private Date creationTime;
     
+	@Enumerated(EnumType.STRING) 
     @Column(name = "status_order", nullable = false, length = 100)
-    private String statusOrder;
+    private OrderStatus statusOrder;
     
     @Column(name = "total")
     private Double total;
@@ -62,4 +57,13 @@ public class Order {
     
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderDetail> voucher;
+	
+	public Double calculateTotal() {
+        return voucher.stream()
+        		 .mapToDouble(OrderDetail::calculateDiscountedPrice)
+                      .sum();
+    }
+	public void calculateAndSetTotal() {
+        this.total = calculateTotal();
+    }
 }

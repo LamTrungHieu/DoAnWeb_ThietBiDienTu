@@ -17,7 +17,7 @@
             <input type="text" name="search" class="form-control mb-3" placeholder="Tìm kiếm người dùng" value="${searchTerm}">
             <button type="submit" class="btn btn-primary">Tìm kiếm</button>
         </form>
-
+	
         <!-- Hiển thị danh sách người dùng -->
         <table class="table table-bordered mt-3">
             <thead>
@@ -26,6 +26,7 @@
                     <th>Tên</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Địa Chỉ</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,31 +36,40 @@
                         <td>${user.fullName}</td>
                         <td>${user.email}</td>
                         <td>${user.phone}</td>
+                        <td>${user.address}</td>
                         <td style="text-align: center; vertical-align: middle;">
-                                        <a href="/admin/customers/${user.id_user}" class="btn btn-danger custom-hover">Chi tiết</a>
+                                        <a href="/admin/users/${user.id_user}" class="btn btn-danger custom-hover">Chi tiết</a>
                                     </td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
 
-        <!-- Phân trang -->
-        <div class="pagination">
-    <c:if test="${currentPage > 0}">
-        <a href="?page=${currentPage - 1}&search=${searchTerm}" class="btn btn-secondary">Trước</a>
-    </c:if>
-    
-    <c:forEach var="i" begin="0" end="${totalPages - 1}">
-        <a href="?page=${i}&search=${searchTerm}" 
-           class="btn ${i == currentPage ? 'btn-primary' : 'btn-outline-secondary'}">
-            ${i + 1}
-        </a>
-    </c:forEach>
+     <!-- Phân trang -->
+<div class="d-flex justify-content-center mt-4">
+    <div class="pagination">
+        <!-- Nút "Trước" -->
+        <c:if test="${currentPage > 0}">
+            <a href="?page=${currentPage - 1}&search=${searchTerm}" 
+               class="btn btn-secondary me-1">Trước</a>
+        </c:if>
 
-    <c:if test="${currentPage < totalPages - 1}">
-        <a href="?page=${currentPage + 1}&search=${searchTerm}" class="btn btn-secondary">Sau</a>
-    </c:if>
+        <!-- Hiển thị các nút số trang -->
+        <c:forEach var="i" begin="0" end="${totalPages - 1}">
+            <a href="?page=${i}&search=${searchTerm}" 
+               class="btn ${i == currentPage ? 'btn-primary' : 'btn-outline-secondary'} me-1">
+                 ${i + 1}
+            </a>
+        </c:forEach>
+
+        <!-- Nút "Sau" -->
+        <c:if test="${currentPage < totalPages - 1}">
+            <a href="?page=${currentPage + 1}&search=${searchTerm}" 
+               class="btn btn-secondary">Sau</a>
+        </c:if>
+    </div>
 </div>
+
 
     </div>
 </body>

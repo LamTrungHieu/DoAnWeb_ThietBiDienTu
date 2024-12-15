@@ -41,6 +41,8 @@ public class AdminUserController {
             // Otherwise, get all users (paginated)
             users = userService.getUsers(pageable);
         }
+        System.out.println("Total Pages: " + users.getTotalPages());
+        System.out.println("Current Page: " + page);
 
         // Add attributes to the model for rendering in the view
         model.addAttribute("users", users);
@@ -69,6 +71,6 @@ public class AdminUserController {
         model.addAttribute("totalPages", ordersPage.getTotalPages());
 
         // Return the JSP page
-        return "admin/user/customer-details";
+        return "admin/user/customer-detail";
     }
 }

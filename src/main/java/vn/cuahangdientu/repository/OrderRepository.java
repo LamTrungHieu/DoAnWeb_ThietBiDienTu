@@ -13,4 +13,6 @@ import org.springframework.data.repository.query.Param;
 public interface OrderRepository extends JpaRepository<Order, Integer>{
 	@Query("SELECT o FROM Order o WHERE o.user.id_user = :userId")
     Page<Order> findByUserId(@Param("userId") Integer userId, Pageable pageable);
-	}
+	
+	Page<Order> findByStatusOrderContaining(String status, Pageable pageable);
+}

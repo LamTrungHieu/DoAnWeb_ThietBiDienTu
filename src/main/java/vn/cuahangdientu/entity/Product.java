@@ -1,51 +1,35 @@
 package vn.cuahangdientu.entity;
 
-import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
-@Table(name = "Products")
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "products")
 public class Product {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_product;
-	
-	@Column(name = "name_product", length = 100, nullable = false)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id_product;
+
+    @Column(name = "name_product", length = 100, nullable = false)
 	private String name;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_shop", nullable = false)
-	private Shop shop;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_category", nullable = false)
-	private Category category;
-	
-	@Column(name = "price", nullable = false)
+	/* private String imageUrl; */
+    @Column(name = "imageProduct", length = 500, nullable = false)
+	private String imageProduct;
+    @Column(name = "price", nullable = false)
 	private Double price;
-	
-	@Column(name = "quantity", nullable = false)
-	private Integer quantity;
-	
-	@Column(name = "status_product", nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
-	private boolean status_product;
-	
-	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<ProductColor> productColors;
+    private LocalDateTime updatedAt;
+    private LocalDateTime createdAt;
+
+    // Getters and setters
 }
